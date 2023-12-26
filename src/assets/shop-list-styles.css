@@ -115,6 +115,10 @@ li input {
   margin: 0.5rem 0;
 }
 
+.add-item-form input[type='number'] {
+  width: 10%;
+}
+
 .btn {
   border: none;
   border-radius: 3px;
