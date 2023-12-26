@@ -10,6 +10,7 @@ const items = ref([
 ])
 
 const newItem = ref('')
+const newCount = ref('')
 //const newItemPriority = ref('low')
 const newItemHighPriority = ref(false)
 </script>
@@ -19,6 +20,7 @@ const newItemHighPriority = ref(false)
     <h1>{{ header }}</h1>
   </header>
   <form class="add-item-form">
+    <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
     <input
       v-model.trim="newItem"
       type="text"
