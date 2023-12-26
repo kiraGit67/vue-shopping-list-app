@@ -47,6 +47,7 @@ const newItemHighPriority = ref(false)
       High Priority
     </label>
   </form>
+  <p>{{ newCount }} {{ newItem }}</p>
   <ul>
     <li v-for="({ id, count, label }, index) in items" :key="id">
       [{{ index }}] {{ id }}) {{ count }} {{ label }}
