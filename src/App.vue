@@ -53,7 +53,9 @@ const doEdit = (event) => {
       />
       High Priority
     </label>
-    <button class="btn btn-primary">Save Item</button>
+    <button :disabled="newItem.length === 0 || newCount.length === 0" class="btn btn-primary">
+      Save Item
+    </button>
   </form>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
