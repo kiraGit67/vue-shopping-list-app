@@ -12,16 +12,20 @@ const items = ref([
 const newItem = ref('')
 const newCount = ref('')
 const newItemHighPriority = ref(false)
+
+//Methods
+const saveItem = () => {
+  items.value.push({ id: items.value.length + 1, count: newCount.value, label: newItem.value })
+  newCount.value = ''
+  newItem.value = ''
+}
 </script>
 
 <template>
   <header>
     <h1>{{ header }}</h1>
   </header>
-  <form
-    class="add-item-form"
-    @submit.prevent="items.push({ id: items.length + 1, count: newCount, label: newItem })"
-  >
+  <form class="add-item-form" @submit.prevent="saveItem">
     <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
     <input
       v-model.trim="newItem"
