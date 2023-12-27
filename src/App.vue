@@ -26,6 +26,7 @@ const newItemHighPriority = ref(false)
       name="new-item"
       id="new-item"
       placeholder="Add new item"
+      @keyup.enter="items.push({ id: items.length + 1, count: newCount, label: newItem })"
     />
     <label for="high-priority">
       <input
@@ -36,7 +37,12 @@ const newItemHighPriority = ref(false)
       />
       High Priority
     </label>
-    <button class="btn btn-primary">Save Item</button>
+    <button
+      @click="items.push({ id: items.length + 1, count: newCount, label: newItem })"
+      class="btn btn-primary"
+    >
+      Save Item
+    </button>
   </div>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
