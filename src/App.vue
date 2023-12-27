@@ -18,7 +18,7 @@ const newItemHighPriority = ref(false)
   <header>
     <h1>{{ header }}</h1>
   </header>
-  <div class="add-item-form">
+  <form class="add-item-form">
     <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
     <input
       v-model.trim="newItem"
@@ -43,7 +43,7 @@ const newItemHighPriority = ref(false)
     >
       Save Item
     </button>
-  </div>
+  </form>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
     <li v-for="({ id, count, label }, index) in items" :key="id">
