@@ -43,6 +43,7 @@ const doEdit = (event) => {
       name="new-item"
       id="new-item"
       placeholder="Add new item"
+      :disabled="newItem.length > 50"
     />
     <label for="high-priority">
       <input
