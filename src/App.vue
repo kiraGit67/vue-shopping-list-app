@@ -36,6 +36,7 @@ const newItemHighPriority = ref(false)
       />
       High Priority
     </label>
+    <button class="btn btn-primary">Save Item</button>
   </form>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
