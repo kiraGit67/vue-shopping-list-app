@@ -18,7 +18,10 @@ const newItemHighPriority = ref(false)
   <header>
     <h1>{{ header }}</h1>
   </header>
-  <form class="add-item-form">
+  <form
+    class="add-item-form"
+    @submit.prevent="items.push({ id: items.length + 1, count: newCount, label: newItem })"
+  >
     <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
     <input
       v-model.trim="newItem"
@@ -26,7 +29,6 @@ const newItemHighPriority = ref(false)
       name="new-item"
       id="new-item"
       placeholder="Add new item"
-      @keyup.enter="items.push({ id: items.length + 1, count: newCount, label: newItem })"
     />
     <label for="high-priority">
       <input
@@ -37,12 +39,7 @@ const newItemHighPriority = ref(false)
       />
       High Priority
     </label>
-    <button
-      @click="items.push({ id: items.length + 1, count: newCount, label: newItem })"
-      class="btn btn-primary"
-    >
-      Save Item
-    </button>
+    <button class="btn btn-primary">Save Item</button>
   </form>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
