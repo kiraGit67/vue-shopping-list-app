@@ -21,13 +21,19 @@ const saveItem = () => {
   newCount.value = ''
   newItem.value = ''
 }
+
+const doEdit = (event) => {
+  editing.value = event
+  newCount.value = ''
+  newItem.value = ''
+}
 </script>
 
 <template>
   <header class="header">
     <h1>{{ header }}</h1>
-    <button v-if="editing" class="btn">Cancel</button>
-    <button v-else class="btn btn-primary">Add New Item</button>
+    <button v-if="editing" class="btn" @click="doEdit(false)">Cancel</button>
+    <button v-else class="btn btn-primary" @click="doEdit(true)">Add New Item</button>
   </header>
   <form v-if="editing" class="add-item-form" @submit.prevent="saveItem">
     <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
