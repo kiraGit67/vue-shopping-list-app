@@ -11,7 +11,6 @@ const items = ref([
 
 const newItem = ref('')
 const newCount = ref('')
-//const newItemPriority = ref('low')
 const newItemHighPriority = ref(false)
 </script>
 
@@ -28,15 +27,6 @@ const newItemHighPriority = ref(false)
       id="new-item"
       placeholder="Add new item"
     />
-    <!--
-    <label for="priority">
-      Priority:
-      <select v-model="newItemPriority" name="priority" id="priority">
-        <option value="low">Low</option>
-        <option value="high">High</option>
-      </select>
-    </label>
-    -->
     <label for="high-priority">
       <input
         v-model="newItemHighPriority"
