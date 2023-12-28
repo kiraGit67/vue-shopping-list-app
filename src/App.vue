@@ -6,7 +6,7 @@ const header = ref('Shopping List App')
 const items = ref([
   { id: 1, count: 10, label: '10er-Packs DVDs', purchased: true, highPriority: true },
   { id: 2, count: 25, label: 'DVD Labels', purchased: false, highPriority: false },
-  { id: 3, count: 40, label: 'USB-Sticks', purchased: true, highPriority: true }
+  { id: 3, count: 40, label: 'USB-Sticks', purchased: false, highPriority: true }
 ])
 
 const newItem = ref('')
@@ -61,9 +61,9 @@ const doEdit = (event) => {
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
     <li
-      v-for="({ id, count, label, purchased }, index) in items"
+      v-for="({ id, count, label, purchased, highPriority }, index) in items"
       :key="id"
-      :class="{ strikeout: purchased }"
+      :class="[purchased ? 'strikeout' : 'underline', highPriority ? 'priority' : '']"
     >
       [{{ index }}] {{ id }}) {{ count }} {{ label }}
     </li>
