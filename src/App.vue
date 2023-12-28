@@ -66,6 +66,8 @@ const togglePurchased = (item) => {
         type="checkbox"
         name="high-priority"
         id="high-priority"
+        :class="{ invalid: newItem.length > 50 }"
+        :disabled="newItem.length > 50"
       />
       High Priority
     </label>
