@@ -60,7 +60,11 @@ const doEdit = (event) => {
   </form>
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
-    <li v-for="({ id, count, label }, index) in items" :key="id">
+    <li
+      v-for="({ id, count, label, purchased }, index) in items"
+      :key="id"
+      :class="{ strikeout: purchased }"
+    >
       [{{ index }}] {{ id }}) {{ count }} {{ label }}
     </li>
   </ul>
