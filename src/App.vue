@@ -26,6 +26,7 @@ const saveItem = () => {
   })
   newCount.value = ''
   newItem.value = ''
+  newItemHighPriority.value = ''
 }
 
 const doEdit = (event) => {
@@ -74,6 +75,7 @@ const togglePurchased = (item) => {
     <li
       v-for="({ id, count, label, purchased, highPriority }, index) in items"
       :key="id"
+      class="static-class"
       :class="{ strikeout: purchased, priority: highPriority }"
       @click="togglePurchased(items[index])"
     >
