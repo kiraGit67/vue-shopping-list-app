@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const header = ref('Shopping List App')
 
@@ -14,6 +14,11 @@ const newCount = ref('')
 const newItemHighPriority = ref(false)
 
 const editing = ref(false)
+
+//Computed Properties
+const characterCount = computed(() => {
+  return newItem.value.length
+})
 
 //Methods
 const saveItem = () => {
