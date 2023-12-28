@@ -20,6 +20,10 @@ const characterCount = computed(() => {
   return newItem.value.length
 })
 
+const reversedItems = computed(() => {
+  return [...items.value].reverse()
+})
+
 //Methods
 const saveItem = () => {
   items.value.push({
@@ -90,11 +94,11 @@ const togglePurchased = (item) => {
   <p>{{ newCount }} {{ newItem }}</p>
   <ul>
     <li
-      v-for="({ id, count, label, purchased, highPriority }, index) in items"
+      v-for="({ id, count, label, purchased, highPriority }, index) in reversedItems"
       :key="id"
       class="static-class"
       :class="{ strikeout: purchased, priority: highPriority }"
-      @click="togglePurchased(items[index])"
+      @click="togglePurchased(reversedItems[index])"
     >
       [{{ index }}] {{ id }}) {{ count }} {{ label }}
     </li>
