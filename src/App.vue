@@ -65,6 +65,7 @@ const togglePurchased = (item) => {
       :disabled="newItem.length > 50"
       :class="{ invalid: newItem.length > 50 }"
     />
+    <p class="counter">{{ characterCount }} / 50</p>
     <label for="high-priority">
       <input
         v-model="newItemHighPriority"
