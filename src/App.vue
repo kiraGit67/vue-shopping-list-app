@@ -62,8 +62,8 @@ const togglePurchased = (item) => {
       name="new-item"
       id="new-item"
       placeholder="Add new item"
-      :disabled="newItem.length > 50"
-      :class="{ invalid: newItem.length > 50 }"
+      :disabled="characterCount > 50"
+      :class="{ invalid: characterCount > 50 }"
     />
     <p class="counter">
       <span :class="{ invalid: characterCount > 50 }">{{ characterCount }}</span
@@ -75,13 +75,13 @@ const togglePurchased = (item) => {
         type="checkbox"
         name="high-priority"
         id="high-priority"
-        :class="{ invalid: newItem.length > 50 }"
-        :disabled="newItem.length > 50"
+        :class="{ invalid: characterCount > 50 }"
+        :disabled="characterCount > 50"
       />
       High Priority
     </label>
     <button
-      :disabled="newItem.length === 0 || newItem.length > 50 || newCount.length === 0"
+      :disabled="characterCount === 0 || characterCount > 50 || newCount.length === 0"
       class="btn btn-primary"
     >
       Save Item
