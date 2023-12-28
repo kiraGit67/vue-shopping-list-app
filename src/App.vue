@@ -51,56 +51,60 @@ const togglePurchased = (item) => {
 </script>
 
 <template>
-  <header class="header">
-    <h1>{{ header }}</h1>
-    <button v-if="editing" class="btn" :class="{ 'btn-cancel': editing }" @click="doEdit(false)">
-      Cancel
-    </button>
-    <button v-else class="btn btn-primary" @click="doEdit(true)">Add New Item</button>
-  </header>
-  <form v-if="editing" class="add-item-form" @submit.prevent="saveItem">
-    <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
-    <input
-      v-model.trim="newItem"
-      type="text"
-      name="new-item"
-      id="new-item"
-      placeholder="Add new item"
-      :disabled="characterCount > 50"
-      :class="{ invalid: characterCount > 50 }"
-    />
-    <p class="counter">
-      <span :class="{ invalid: characterCount > 50 }">{{ characterCount }}</span
-      >/50
-    </p>
-    <label for="high-priority">
+  <div>
+    <header class="header">
+      <h1>{{ header }}</h1>
+      <button v-if="editing" class="btn" :class="{ 'btn-cancel': editing }" @click="doEdit(false)">
+        Cancel
+      </button>
+      <button v-else class="btn btn-primary" @click="doEdit(true)">Add New Item</button>
+    </header>
+    <form v-if="editing" class="add-item-form" @submit.prevent="saveItem">
+      <input v-model="newCount" type="number" name="new-count" id="new-count" maxlength="4" />
       <input
-        v-model="newItemHighPriority"
-        type="checkbox"
-        name="high-priority"
-        id="high-priority"
-        :class="{ invalid: characterCount > 50 }"
+        v-model.trim="newItem"
+        type="text"
+        name="new-item"
+        id="new-item"
+        placeholder="Add new item"
         :disabled="characterCount > 50"
+        :class="{ invalid: characterCount > 50 }"
       />
-      High Priority
-    </label>
-    <button
-      :disabled="characterCount === 0 || characterCount > 50 || newCount.length === 0"
-      class="btn btn-primary"
-    >
-      Save Item
-    </button>
-  </form>
-  <p>{{ newCount }} {{ newItem }}</p>
-  <ul>
-    <li
-      v-for="({ id, count, label, purchased, highPriority }, index) in reversedItems"
-      :key="id"
-      class="static-class"
-      :class="{ strikeout: purchased, priority: highPriority }"
-      @click="togglePurchased(reversedItems[index])"
-    >
-      [{{ index }}] {{ id }}) {{ count }} {{ label }}
-    </li>
-  </ul>
+      <p class="counter">
+        <span :class="{ invalid: characterCount > 50 }">{{ characterCount }}</span
+        >/50
+      </p>
+      <label for="high-priority">
+        <input
+          v-model="newItemHighPriority"
+          type="checkbox"
+          name="high-priority"
+          id="high-priority"
+          :class="{ invalid: characterCount > 50 }"
+          :disabled="characterCount > 50"
+        />
+        High Priority
+      </label>
+      <button
+        :disabled="characterCount === 0 || characterCount > 50 || newCount.length === 0"
+        class="btn btn-primary"
+      >
+        Save Item
+      </button>
+    </form>
+  </div>
+  <div>
+    <p>{{ newCount }} {{ newItem }}</p>
+    <ul>
+      <li
+        v-for="({ id, count, label, purchased, highPriority }, index) in reversedItems"
+        :key="id"
+        class="static-class"
+        :class="{ strikeout: purchased, priority: highPriority }"
+        @click="togglePurchased(reversedItems[index])"
+      >
+        [{{ index }}] {{ id }}) {{ count }} {{ label }}
+      </li>
+    </ul>
+  </div>
 </template>
