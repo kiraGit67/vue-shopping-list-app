@@ -28,6 +28,11 @@ body {
   padding-right: 10px;
 }
 
+.counter > .invalid {
+  color: #e3342f;
+  font-weight: bold;
+}
+
 #app {
   background: #fff;
   padding: 2rem;
