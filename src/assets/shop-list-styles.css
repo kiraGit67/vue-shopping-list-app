@@ -181,3 +181,8 @@ input[type='checkbox'] {
   box-shadow: none;
   width: auto;
 }
+
+input[type='checkbox'].invalid {
+  _accent-color: #e3342f;
+  outline: 2px solid #ef5753;
+}
