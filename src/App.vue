@@ -44,7 +44,9 @@ const togglePurchased = (item) => {
 <template>
   <header class="header">
     <h1>{{ header }}</h1>
-    <button v-if="editing" class="btn" @click="doEdit(false)">Cancel</button>
+    <button v-if="editing" class="btn" :class="{ 'btn-cancel': editing }" @click="doEdit(false)">
+      Cancel
+    </button>
     <button v-else class="btn btn-primary" @click="doEdit(true)">Add New Item</button>
   </header>
   <form v-if="editing" class="add-item-form" @submit.prevent="saveItem">
@@ -56,6 +58,7 @@ const togglePurchased = (item) => {
       id="new-item"
       placeholder="Add new item"
       :disabled="newItem.length > 50"
+      :class="{ invalid: newItem.length > 50 }"
     />
     <label for="high-priority">
       <input
