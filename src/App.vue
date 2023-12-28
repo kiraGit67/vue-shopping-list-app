@@ -71,7 +71,10 @@ const togglePurchased = (item) => {
       />
       High Priority
     </label>
-    <button :disabled="newItem.length === 0 || newCount.length === 0" class="btn btn-primary">
+    <button
+      :disabled="newItem.length === 0 || newItem.length > 50 || newCount.length === 0"
+      class="btn btn-primary"
+    >
       Save Item
     </button>
   </form>
