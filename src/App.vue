@@ -17,7 +17,13 @@ const editing = ref(false)
 
 //Methods
 const saveItem = () => {
-  items.value.push({ id: items.value.length + 1, count: newCount.value, label: newItem.value })
+  items.value.push({
+    id: items.value.length + 1,
+    count: newCount.value,
+    label: newItem.value,
+    purchased: false,
+    highPriority: newItemHighPriority.value
+  })
   newCount.value = ''
   newItem.value = ''
 }
