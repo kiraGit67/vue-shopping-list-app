@@ -45,6 +45,10 @@ body {
   max-width: 900px;
 }
 
+#app > div {
+  margin-block: 2.5rem;
+}
+
 h1 {
   color: #3d4852;
 }
@@ -100,15 +104,21 @@ li input {
   margin: 0.5rem 0;
 }
 
-.add-item-form,
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.add-item-form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+  _margin-bottom: 2.5rem;
+}
+
 .add-item-form input {
-  width: 70%;
+  width: 100%;
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #f1f5f8;
@@ -119,11 +129,11 @@ li input {
   letter-spacing: 0.5px;
   margin: 0.5rem 0;
 }
-
+/*
 .add-item-form input[type='number'] {
   width: 10%;
 }
-
+*/
 .btn {
   border: none;
   border-radius: 3px;
