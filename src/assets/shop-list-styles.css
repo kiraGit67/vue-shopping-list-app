@@ -170,6 +170,12 @@ li input {
 .priority {
   color: #de751f;
 }
+
+.add-item-form input.invalid {
+  border: 1px solid #ef5753;
+  color: #e3342f;
+}
+
 input[type='checkbox'] {
   display: inline !important;
   box-shadow: none;
