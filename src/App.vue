@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const header = ref('Shopping List App')
 
 const items = ref([
-  { id: 1, count: 10, label: '10er-Packs DVDs', purchased: true, highPriority: true },
+  { id: 1, count: 10, label: '10er-Packs DVDs', purchased: true, highPriority: false },
   { id: 2, count: 25, label: 'DVD Labels', purchased: false, highPriority: false },
   { id: 3, count: 40, label: 'USB-Sticks', purchased: false, highPriority: true }
 ])
@@ -26,6 +26,10 @@ const doEdit = (event) => {
   editing.value = event
   newCount.value = ''
   newItem.value = ''
+}
+
+const togglePurchased = (item) => {
+  item.purchased = !item.purchased
 }
 </script>
 
@@ -63,7 +67,8 @@ const doEdit = (event) => {
     <li
       v-for="({ id, count, label, purchased, highPriority }, index) in items"
       :key="id"
-      :class="[purchased ? 'strikeout' : 'underline', highPriority ? 'priority' : '']"
+      :class="{ strikeout: purchased, priority: highPriority }"
+      @click="togglePurchased(items[index])"
     >
       [{{ index }}] {{ id }}) {{ count }} {{ label }}
     </li>
