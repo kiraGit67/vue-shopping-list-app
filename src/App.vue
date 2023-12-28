@@ -32,6 +32,7 @@ const doEdit = (event) => {
   editing.value = event
   newCount.value = ''
   newItem.value = ''
+  newItemHighPriority.value = ''
 }
 
 const togglePurchased = (item) => {
