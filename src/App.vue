@@ -4,9 +4,9 @@ import { ref } from 'vue'
 const header = ref('Shopping List App')
 
 const items = ref([
-  { id: 1, count: 10, label: '10er-Packs DVDs', purchased: true },
-  { id: 2, count: 25, label: 'DVD Labels', purchased: false },
-  { id: 3, count: 40, label: 'USB-Sticks', purchased: true }
+  { id: 1, count: 10, label: '10er-Packs DVDs', purchased: true, highPriority: true },
+  { id: 2, count: 25, label: 'DVD Labels', purchased: false, highPriority: false },
+  { id: 3, count: 40, label: 'USB-Sticks', purchased: true, highPriority: true }
 ])
 
 const newItem = ref('')
